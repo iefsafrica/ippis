@@ -22,8 +22,8 @@ const StepOne = () => {
 
   return (
     <div className="w-full max-w-2xl space-y-8">
-      <div className=' p-1'>
-        <h2 className="text-xl font-semibold text-green-600">Step 1: Identity Verification</h2>
+      <div className=' p-1 space-y-3'>
+        <h2 className="text-xl font-semibold text-green-700">Step 1: Identity Verification</h2>
         <p className="text-muted-foreground mt-1">
           Please provide your Bank Verification Number (BVN) and National Identification Number (NIN) for verification.
         </p>
