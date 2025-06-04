@@ -25,7 +25,7 @@ export default function RegisterPage() {
       </Head>
 
       <div className="min-h-screen bg-pink-50 flex justify-center items-start py-10 px-4">
-        <div className="bg-white p-8 rounded shadow-md w-full max-w-5xl">
+        <div className="bg-white p-8 rounded shadow-md w-full lg:max-w-5xl">
           {/* Step Progress */}
           
           <div className="flex justify-between mb-8 text-center text-sm font-medium">
