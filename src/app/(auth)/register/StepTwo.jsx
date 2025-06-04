@@ -21,9 +21,9 @@ const StepTwo = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl space-y-8">
-      <div className=' p-1'>
-        <h2 className="text-xl font-semibold text-green-600">Step 1: Identity Verification</h2>
+    <div className="w-full  space-y-8">
+      <div className=' p-1 space-y-3'>
+        <h2 className="text-xl font-semibold text-green-700">Step 1: Identity Verification</h2>
         <p className="text-muted-foreground mt-1">
           Please provide your Bank Verification Number (BVN) and National Identification Number (NIN) for verification.
         </p>
@@ -55,6 +55,13 @@ const StepTwo = () => {
               BVN verified
             </div>
           )}
+
+            {bvnStatus === 'invalid' && (
+            <div className="flex items-center text-red-600 text-sm mt-1">
+              <XCircle className="w-4 h-4 mr-1" />
+              Sorry, lookup failed. Please enter a valid 11 digit BVN and try again.
+            </div>
+          )}
         </div>
 
         {/* NIN Input */}
@@ -79,7 +86,14 @@ const StepTwo = () => {
           {ninStatus === 'invalid' && (
             <div className="flex items-center text-red-600 text-sm mt-1">
               <XCircle className="w-4 h-4 mr-1" />
-              Sorry, lookup failed. Please check the details and try again.
+              Sorry, lookup failed. Please enter a valid 11 digit NIN and try again.
+            </div>
+          )}
+
+           {ninStatus === 'valid' && (
+            <div className="flex items-center text-green-600 text-sm mt-1">
+              <CheckCircle className="w-4 h-4 mr-1" />
+              NIN verified
             </div>
           )}
         </div>
