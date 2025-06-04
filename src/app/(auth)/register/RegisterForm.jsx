@@ -1,5 +1,4 @@
 import React from 'react'
-import ProgressIndicator from './progress-indicator'
 import StepOne from './StepOne'
 
 
@@ -12,7 +11,7 @@ const RegisterForm = async ({ searchParams }) => {
   const step = Number(searchParams?.['step']) || 1
 
   const steps = [1, 3, 4, 5, 5]; 
-const currentStep = 1;
+  const currentStep = 1;
 
 
   return (
@@ -41,10 +40,7 @@ const currentStep = 1;
 
 
         <div className="flex flex-col items-center justify-center gap-y-6 p-5  w-full  bg-white relative overflow-hidden animate-slide-in-up pb-10">
-            
             {(!step || (step === 1)) && <StepOne />}
-           
-
         </div>
     </div>
   )

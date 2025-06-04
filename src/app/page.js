@@ -27,7 +27,7 @@ export default  function Home() {
       <LoadingOverlay isPending={true} loader="2" />
       <div className="text-center">
         <h1 className="text-4xl font-bold mb-4">Welcome</h1>
-        <p className="text-lg text-muted-foreground">Redirecting you to the sign-up page...</p>
+        <p className="text-lg text-green-600">Redirecting you to the sign-up page...</p>
       </div>
     </main>
   );
