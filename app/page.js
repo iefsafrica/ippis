@@ -13,7 +13,7 @@ export default function Home() {
   const [currentStep, setCurrentStep] = useState(1);
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="max-w-4xl mx-auto p-6  border-b-emerald-400">
       {/* Progress Indicator */}
       <div className="flex justify-between mb-8">
         {steps.map((step, index) => (
@@ -83,15 +83,15 @@ export default function Home() {
                 placeholder="Enter your NIN"
               />
             </div>
-            <button
-              type="button"
-              onClick={() => setCurrentStep(currentStep + 1)}
-              className="mt-4 bg-green-400 text-white px-4 py-2 rounded-md">
-              Continue
-            </button>
           </form>
         </div>
       )}
+      <button
+        type="button"
+        onClick={() => setCurrentStep(currentStep + 1)}
+        className="mt-4 bg-green-400 text-white px-4 py-2 rounded-md">
+        Continue
+      </button>
     </div>
   );
 }
