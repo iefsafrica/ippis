@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Form() {
   const steps = [
     { id: 1, label: "Verification" },
@@ -8,6 +6,7 @@ export default function Form() {
     { id: 4, label: "Document upload" },
     { id: 5, label: "Review and Submit" },
   ];
+
   return (
     <div className="bg-white p-4 rounded-lg shadow-md w-1/2">
       <div className="w-full p-2 bg-red-200 rounded-sm">
@@ -52,7 +51,8 @@ export default function Form() {
                 Bank Verification Number (BVN)
               </label>
               <input
-                type="text"
+                type="number"
+                maxLength={11}
                 className="border rounded p-1 text-xs border-black placeholder:text-black"
                 placeholder="Enter your BVN"
               />
@@ -63,7 +63,8 @@ export default function Form() {
                 National Identification Number (NIN)
               </label>
               <input
-                type="text"
+                maxLength={11}
+                type="number"
                 className="border rounded p-1 text-xs border-black placeholder:text-black"
                 placeholder="Enter your NIN"
               />
