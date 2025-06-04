@@ -1,39 +1,45 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const personalInfoSchema = z.object({
+  firstName: z.string().min(1, 'First name is required'),
+  lastName: z.string().min(1, 'Last name is required'),
+  email: z.string().email('Invalid email address'),
+  address: z.string().min(1, 'Address is required'),
+  phone: z.string().min(10, 'Phone number is required'),
+});
+
+
 
 const StepTwo = () => {
-    const router = useRouter()
+  const router = useRouter();
 
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    address: '',
-    phone: '',
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(personalInfoSchema),
   });
 
-  const handleChange = (e) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const handleContinue = () => {
-      console.log('Personal Info:', formData);
-    router?.push("/register?step=3")
+  const onSubmit = (data) => {
+    console.log('Personal Info:', data);
+    router.push('/register?step=3');
   };
 
   const handlePrev = () => {
-    router?.push("/register?step=1")
+    router.push('/register?step=1');
   };
 
   return (
-    <div className="w-full flex flex-col space-y-8">
+    <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col space-y-8">
       {/* Header */}
       <div className="p-1 space-y-3">
         <h2 className="text-xl font-semibold text-green-700">Step 1: Personal Information</h2>
@@ -51,13 +57,13 @@ const StepTwo = () => {
           </label>
           <Input
             id="firstName"
-            name="firstName"
             type="text"
-            required
             placeholder="Enter first name"
-            value={formData.firstName}
-            onChange={handleChange}
+            {...register('firstName')}
           />
+          {errors.firstName && (
+            <p className="text-sm text-red-500">{errors.firstName.message}</p>
+          )}
         </div>
 
         {/* Last Name */}
@@ -67,13 +73,13 @@ const StepTwo = () => {
           </label>
           <Input
             id="lastName"
-            name="lastName"
             type="text"
-            required
             placeholder="Enter last name"
-            value={formData.lastName}
-            onChange={handleChange}
+            {...register('lastName')}
           />
+          {errors.lastName && (
+            <p className="text-sm text-red-500">{errors.lastName.message}</p>
+          )}
         </div>
 
         {/* Email */}
@@ -83,13 +89,13 @@ const StepTwo = () => {
           </label>
           <Input
             id="email"
-            name="email"
-            required
             type="email"
             placeholder="Enter email"
-            value={formData.email}
-            onChange={handleChange}
+            {...register('email')}
           />
+          {errors.email && (
+            <p className="text-sm text-red-500">{errors.email.message}</p>
+          )}
         </div>
 
         {/* Address */}
@@ -99,13 +105,13 @@ const StepTwo = () => {
           </label>
           <Input
             id="address"
-            name="address"
             type="text"
             placeholder="Enter address"
-            required
-            value={formData.address}
-            onChange={handleChange}
+            {...register('address')}
           />
+          {errors.address && (
+            <p className="text-sm text-red-500">{errors.address.message}</p>
+          )}
         </div>
 
         {/* Phone */}
@@ -115,20 +121,31 @@ const StepTwo = () => {
           </label>
           <Input
             id="phone"
-            name="phone"
-            required
             type="tel"
             placeholder="Enter phone number"
-            value={formData.phone}
-            onChange={handleChange}
+            {...register('phone')}
           />
+          {errors.phone && (
+            <p className="text-sm text-red-500">{errors.phone.message}</p>
+          )}
         </div>
       </div>
 
       {/* Warning Notice */}
       <div className="flex items-start gap-3 p-4 bg-yellow-50 rounded-md ring-1 ring-yellow-300">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mt-1 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-.01-6a9 9 0 110 18 9 9 0 010-18z" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5 mt-1 text-yellow-300"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M12 9v2m0 4h.01m-.01-6a9 9 0 110 18 9 9 0 010-18z"
+          />
         </svg>
         <div>
           <p className="font-semibold">Important</p>
@@ -138,16 +155,16 @@ const StepTwo = () => {
         </div>
       </div>
 
-      {/* Submit Button */}
+      {/* Buttons */}
       <div className="text-end flex flex-row items-center space-x-4 self-end">
-        <Button onClick={handlePrev} className="bg-green-200 text-green-700">
+        <Button type="button" onClick={handlePrev} className="bg-green-200 text-green-700">
           Previous
         </Button>
-        <Button onClick={handleContinue} className="bg-green-700">
+        <Button type="submit" className="bg-green-700">
           Continue
         </Button>
       </div>
-    </div>
+    </form>
   );
 };
 

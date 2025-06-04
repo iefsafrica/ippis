@@ -1,6 +1,7 @@
 import React from 'react'
 import StepOne from './StepOne'
 import StepTwo from './StepTwo';
+import StepThree from './StepThree';
 
 
 
@@ -26,7 +27,7 @@ const RegisterForm = async ({ searchParams }) => {
             
             <div className=' flex flex-col items-center space-y-4'>
             <div
-                className={`w-12 h-12 rounded-full ring-1 ring-gray-200 flex items-center justify-center text-sm font-semibold
+                className={`w-12 h-12 rounded-full ring-2 ring-gray-200 flex items-center justify-center text-sm font-semibold
                 ${step?.step === stepIndicator ? 'bg-green-700 text-white' : 'bg-white text-gray-800'}
                 `}
             >
@@ -50,6 +51,8 @@ const RegisterForm = async ({ searchParams }) => {
               {(!step || (step === 1)) && <StepOne />}
 
               {((step === 2)) && <StepTwo  />}
+
+              {((step === 3)) && <StepThree  />}
         </div>
     </div>
   )
