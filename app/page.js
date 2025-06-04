@@ -21,7 +21,7 @@ export default function Home() {
             <div
               className={`w-8 h-8 flex items-center justify-center rounded-full border-2 ${
                 currentStep === index + 1
-                  ? "bg-blue-600 text-white border-blue-600"
+                  ? "bg-green-400 text-white border-green-400"
                   : "bg-white text-gray-500 border-gray-300"
               }`}>
               {index + 1}
@@ -29,7 +29,7 @@ export default function Home() {
             <span
               className={`mt-2 text-sm ${
                 currentStep === index + 1
-                  ? "text-blue-600 font-semibold"
+                  ? "text-green-400 font-semibold"
                   : "text-gray-500"
               }`}>
               {step}
@@ -58,7 +58,9 @@ export default function Home() {
                 BVN
               </label>
               <input
-                type="text"
+                type="number"
+                max={11}
+                min={11}
                 id="bvn"
                 name="bvn"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
@@ -72,7 +74,9 @@ export default function Home() {
                 NIN
               </label>
               <input
-                type="text"
+                type="number"
+                max={11}
+                min={11}
                 id="nin"
                 name="nin"
                 className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-2"
@@ -82,7 +86,7 @@ export default function Home() {
             <button
               type="button"
               onClick={() => setCurrentStep(currentStep + 1)}
-              className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-md">
+              className="mt-4 bg-green-400 text-white px-4 py-2 rounded-md">
               Continue
             </button>
           </form>
