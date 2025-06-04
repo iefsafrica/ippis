@@ -112,11 +112,11 @@ const IPPISRegistrationForm = () => {
             </div>
 
             {/* Submit Button */}
-            <div className="pt-6">
+            <div className="flex justify-end pt-6">
               <button
                 onClick={handleVerify}
                 disabled={!isFormValid}
-                className={`w-full py-3 px-6 rounded-lg font-medium transition-colors ${
+                className={`py-3 px-2 rounded-lg font-medium transition-colors bg-[#15803D] ${
                   isFormValid
                     ? 'bg-green-600 hover:bg-green-700 text-white'
                     : 'bg-gray-300 text-gray-500 cursor-not-allowed'
