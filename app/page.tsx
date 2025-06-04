@@ -2,6 +2,7 @@
 
 import Head from 'next/head';
 import { useState } from 'react';
+import VerifyButton from '../components/VerifyButton'; // Adjust the import path as necessary
 
 export default function RegisterPage() {
   const [bvn, setBvn] = useState('');
@@ -86,12 +87,7 @@ export default function RegisterPage() {
 
           {/* Action Button */}
           <div className="mt-6">
-            <button
-              onClick={handleVerify}
-              className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded font-medium float-right"
-            >
-              Verify & Continue
-            </button>
+            <VerifyButton onClick={handleVerify} />
           </div>
         </div>
       </div>
