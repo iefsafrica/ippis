@@ -12,8 +12,8 @@ import NextTopLoader from "nextjs-toploader";
 const inter = Roboto({weight: ['300', '400', '500'], subsets: ['latin'], variable: '--font-inter'});
 
 export const metadata = {
-  title: "Catcher App",
-  description: "Catcher App",
+  title: "App",
+  description: "App",
 };
 
 export default function RootLayout({
