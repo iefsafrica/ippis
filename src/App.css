@@ -1,11 +1,10 @@
-
 html, body, #root {
   margin: 0;
   padding: 0;
   height: 100%;
   width: 100%;
-  background-color: #FEF2F3;
   font-family: sans-serif;
+  background: linear-gradient(to bottom, #FEE1E3, #FEFEFE);
 }
 
 
@@ -51,6 +50,11 @@ html, body, #root {
   white-space: nowrap; 
 }
 
+.step-label.active {
+  color: #16803C; 
+  
+}
+
 .thin-ash-line {
   border: 0;
   height: 2px;
@@ -94,7 +98,7 @@ html, body, #root {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   width: 11.5rem;
   font-weight: bold;
   transition: background-color 0.2s;
@@ -114,8 +118,8 @@ html, body, #root {
 
 .form-content > div p {
   color: #4B5563;
-  font-size: 17px;
-
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .input-container {
@@ -131,7 +135,7 @@ html, body, #root {
 .input-group label {
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: 500;
+  font-weight: 600;
   color: #000000;
 }
 
@@ -144,6 +148,7 @@ html, body, #root {
   font-size: 1rem;
   color: #000000; 
   background-color: transparent; 
+  font-weight: 600;
 }
 
 .input-group input::placeholder {
@@ -172,4 +177,46 @@ html, body, #root {
 .input-group {
   position: relative;
   margin-bottom: 0.1rem; 
+}
+
+.alert {
+  border: 1px solid #f2e16f; 
+  border-radius: 5px;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #FEFCE8;
+  margin-top: 2rem;
+}
+
+.alert > div h4 {
+  font-size: 16px;
+  margin: 0;
+  color: #000000;
+
+}
+
+.alert > div p {
+  font-size: 16px;
+  margin: 0;
+  color: #000000;
+  margin-left: 1.6rem;
+}
+
+.important-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+ 
+}
+
+.important-notice img {
+  width: 20px;
+  height: 20px;
+}
+
+.important-notice p {
+  color: #4B5563;
+  font-weight: 500;
+  margin: 0;
 }
