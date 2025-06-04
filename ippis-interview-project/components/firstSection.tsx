@@ -55,7 +55,7 @@ export function VerificationForm({ initialData, onSuccess }: VerificationFormPro
     });
 
     // Simulate API call to fetch user data
-    const fetchUserData = async (bvn: string, nin: string) => {
+    const fetchUserData = async () => {
         setIsFetching(true);
         // Simulate network delay
         await new Promise(resolve => setTimeout(resolve, 1500));
@@ -73,7 +73,7 @@ export function VerificationForm({ initialData, onSuccess }: VerificationFormPro
     };
 
     const handleFirstStepSubmit = async (values: z.infer<typeof firstStepSchema>) => {
-        const userData = await fetchUserData(values.bvn, values.nin);
+        const userData = await fetchUserData();
 
         // Update form with fetched data
         form.setValue("firstName", userData.firstName);
@@ -187,10 +187,10 @@ export function VerificationForm({ initialData, onSuccess }: VerificationFormPro
                             {isFetching ? (
                                 <>
                                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                    Fetching data...
+                                    Verifying...
                                 </>
                             ) : step === 1 ? (
-                                "Fetch My Details"
+                                "Verify & Continue"
                             ) : (
                                 "Verify & Continue"
                             )}

@@ -111,7 +111,7 @@ export default function Home() {
           />
         );
       case 5:
-        return <Confirmation data={formData} onClick={() => setCurrentStep(1)} />;
+        return <Confirmation data={formData} onClick={() => { setCurrentStep(1); setFormData(initialFormData) }} />;
       default:
         return null;
     }

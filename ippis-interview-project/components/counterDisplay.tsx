@@ -27,7 +27,7 @@ const counterDisplay = ({ activeIndex }: { activeIndex: number }) => {
         <div className="w-full py-4">
             <div className='flex justify-between items-center'>
                 {countDsiplay.map((view, index) => (
-                    <div className="flex flex-col items-center relative">
+                    <div key={index} className="flex flex-col items-center relative">
                         <div className={`flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-200 ${activeIndex == index ? "border-green-700 bg-green-700 text-white" : " border-gray-300 bg-white text-gray-400"}`}><span>
                             {view.number}
                         </span>

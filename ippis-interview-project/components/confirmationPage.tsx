@@ -16,11 +16,11 @@ export function Confirmation({ data, onClick }: ConfirmationProps) {
                     Registration Complete!
                 </h2>
                 <p className="text-gray-600 mb-4">
-                    Thank you for submitting your information. Here's what we received:
+                    `Thank you for submitting your information. Here's what we received:`
                 </p>
             </div>
 
-            <div className="p-6 rounded-lg border bg-card text-card-foreground shadow-sm border-green-200 grid grid-cols-2 gap-4">
+            <div className="p-6 rounded-lg border bg-card text-card-foreground shadow-sm border-green-200 grid md:grid-cols-2 gap-4">
                 <div>
 
                     <h3 className="font-semibold text-lg">Personal Information</h3>
