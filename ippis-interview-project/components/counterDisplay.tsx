@@ -32,13 +32,13 @@ const counterDisplay = ({ activeIndex }: { activeIndex: number }) => {
                             {view.number}
                         </span>
                         </div>
-                        <span className='text-xs mt-2 text-center hidden sm:block transition-colors duration-200 text-gray-500'>
+                        <span className={`text-xs mt-2 text-center hidden sm:block transition-colors duration-200 ${activeIndex == index ? "text-green-700" : "text-gray-500"}`}>
                             {view.text}
                         </span>
                     </div>
                 ))}
             </div>
-            <div className='class="relative flex justify-between items-center mt-5"'>
+            <div className='class="relative flex justify-between items-center mt-5  h-0.5 transition-colors duration-300 bg-gray-300'>
 
             </div>
         </div>

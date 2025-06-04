@@ -41,7 +41,7 @@ export function VerificationForm() {
 
     return (
 
-        <div className="space-y-8">
+        <div className=" flex flex-col gap-8">
             <div>
                 <h2 className="text-2xl font-bold text-green-700 mb-6">
                     Step 1: Identity Verification
@@ -52,17 +52,19 @@ export function VerificationForm() {
             </div>
 
             <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <div className="p-6 pt-6 rounded-lg border bg-card text-card-foreground shadow-sm border-red-200 space-y-6">
+                <form onSubmit={form.handleSubmit(onSubmit)} className="grid gap-6">
+                    <div className="p-6 pt-6 rounded-lg border bg-card text-card-foreground shadow-sm border-red-200 grid gap-6">
 
                         <FormFieldInput
                             form={form.control}
-                            type="number"
+                            maxLength={11}
+                            type="text"
                             name="bvn" label={"Bank Verification Number (BVN)"} placeholder={"Enter your 11-digit BVN"}
                         />
                         <FormFieldInput
                             form={form.control}
-                            type="number"
+                            type="text"
+                            maxLength={11}
 
                             name="nin" label={"National Identification Number (NIN)"} placeholder={"Enter your 11-digit NIN"}
                         />
@@ -70,7 +72,7 @@ export function VerificationForm() {
                     <div className="bg-yellow-50 border border-yellow-200 rounded-md p-4">
                         <div className="flex">
                             <Info className="lucide lucide-circle-alert h-5 w-5 text-yellow-600 mr-2 flex-shrink-0" />
-                            <div className="text-sm text-yellow-700">
+                            <div className="text-base text-yellow-700">
                                 <p className="font-medium">Important</p>
                                 <p>
                                     Please ensure that you enter your correct BVN and NIN. These will be used to verify your identity and cannot be changed later.
