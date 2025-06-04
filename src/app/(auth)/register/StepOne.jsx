@@ -4,13 +4,17 @@ import React, { useState } from 'react';
 import { CheckCircle, XCircle } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
+
 
 
 const StepOne = () => {
+    const router = useRouter()
   const [bvn, setBvn] = useState('');
   const [nin, setNin] = useState('');
   const [bvnStatus, setBvnStatus] = useState(null); 
   const [ninStatus, setNinStatus] = useState(null); 
+
 
   
 
@@ -18,6 +22,10 @@ const StepOne = () => {
    
     setBvnStatus(bvn.length === 11 ? 'valid' : 'invalid');
     setNinStatus(nin.length === 11 ? 'valid' : 'invalid');
+
+    if(bvnStatus && ninStatus === "valid"){
+        router?.push("/register?step=2")
+    }
   };
 
   return (

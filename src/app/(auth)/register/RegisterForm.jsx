@@ -1,5 +1,6 @@
 import React from 'react'
 import StepOne from './StepOne'
+import StepTwo from './StepTwo';
 
 
 
@@ -9,6 +10,7 @@ const RegisterForm = async ({ searchParams }) => {
  
 
   const step = Number(searchParams?.['step']) || 1
+  const stepIndicator = Number(searchParams?.['step']) || 1
 
 //   const steps = [1, 3, 4, 5, 5]; 
   const steps = [{"step": 1, label:"Verification"}, {"step": 2, label:"Personal Information"}, {"step": 3, label:"Employment Information"}, {"step": 4, label:"Document Upload"}, {"step": 5, label:"Review & Submit"}]; 
@@ -25,7 +27,7 @@ const RegisterForm = async ({ searchParams }) => {
             <div className=' flex flex-col items-center space-y-4'>
             <div
                 className={`w-12 h-12 rounded-full ring-1 ring-gray-200 flex items-center justify-center text-sm font-semibold
-                ${index === 0 ? 'bg-green-700 text-white' : 'bg-white text-gray-800'}
+                ${step?.step === stepIndicator ? 'bg-green-700 text-white' : 'bg-white text-gray-800'}
                 `}
             >
                 {step?.step}
@@ -45,7 +47,9 @@ const RegisterForm = async ({ searchParams }) => {
 
 
         <div className="flex flex-col items-center justify-center gap-y-6 p-5  w-full  bg-white relative overflow-hidden animate-slide-in-up pb-10">
-            {(!step || (step === 1)) && <StepOne />}
+              {(!step || (step === 1)) && <StepOne />}
+
+              {((step === 2)) && <StepTwo  />}
         </div>
     </div>
   )

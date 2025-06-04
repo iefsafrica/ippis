@@ -1,121 +1,151 @@
-'use client'
+'use client';
 
 import React, { useState } from 'react';
-import { CheckCircle, XCircle } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-
+import { useRouter } from 'next/navigation';
 
 const StepTwo = () => {
-  const [bvn, setBvn] = useState('');
-  const [nin, setNin] = useState('');
-  const [bvnStatus, setBvnStatus] = useState(null); 
-  const [ninStatus, setNinStatus] = useState(null); 
+    const router = useRouter()
 
-  
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    address: '',
+    phone: '',
+  });
 
-  const handleVerify = () => {
-   
-    setBvnStatus(bvn.length === 11 ? 'valid' : 'invalid');
-    setNinStatus(nin.length === 11 ? 'valid' : 'invalid');
+  const handleChange = (e) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleContinue = () => {
+      console.log('Personal Info:', formData);
+    router?.push("/register?step=3")
+  };
+
+  const handlePrev = () => {
+    router?.push("/register?step=1")
   };
 
   return (
-    <div className="w-full  space-y-8">
-      <div className=' p-1 space-y-3'>
-        <h2 className="text-xl font-semibold text-green-700">Step 1: Identity Verification</h2>
+    <div className="w-full flex flex-col space-y-8">
+      {/* Header */}
+      <div className="p-1 space-y-3">
+        <h2 className="text-xl font-semibold text-green-700">Step 1: Personal Information</h2>
         <p className="text-muted-foreground mt-1">
-          Please provide your Bank Verification Number (BVN) and National Identification Number (NIN) for verification.
+          Please provide your personal information for registration.
         </p>
       </div>
 
+      {/* Input Fields */}
       <div className="space-y-6 p-5 border border-destructive/20 bg-white rounded-lg">
-        {/* BVN Input */}
+        {/* First Name */}
         <div className="space-y-2">
-          <label htmlFor="bvn" className="font-medium text-sm">
-            Bank Verification Number (BVN)
+          <label htmlFor="firstName" className="font-medium text-sm">
+            First Name
           </label>
           <Input
-            id="bvn"
+            id="firstName"
+            name="firstName"
             type="text"
-            placeholder="Enter BVN"
-            value={bvn}
-            onChange={(e) => setBvn(e.target.value)}
-            className={
-              bvnStatus === 'valid'
-                ? 'border-green-500 focus-visible:ring-green-500'
-                : bvnStatus === 'invalid'
-                ? 'border-red-500 focus-visible:ring-red-500'
-                : ''
-            }
+            required
+            placeholder="Enter first name"
+            value={formData.firstName}
+            onChange={handleChange}
           />
-          {bvnStatus === 'valid' && (
-            <div className="flex items-center text-green-600 text-sm mt-1">
-              <CheckCircle className="w-4 h-4 mr-1" />
-              BVN verified
-            </div>
-          )}
-
-            {bvnStatus === 'invalid' && (
-            <div className="flex items-center text-red-600 text-sm mt-1">
-              <XCircle className="w-4 h-4 mr-1" />
-              Sorry, lookup failed. Please enter a valid 11 digit BVN and try again.
-            </div>
-          )}
         </div>
 
-        {/* NIN Input */}
+        {/* Last Name */}
         <div className="space-y-2">
-          <label htmlFor="nin" className="font-medium text-sm">
-            National Identification Number (NIN)
+          <label htmlFor="lastName" className="font-medium text-sm">
+            Last Name
           </label>
           <Input
-            id="nin"
+            id="lastName"
+            name="lastName"
             type="text"
-            placeholder="Enter NIN"
-            value={nin}
-            onChange={(e) => setNin(e.target.value)}
-            className={
-              ninStatus === 'invalid'
-                ? 'border-red-500 focus-visible:ring-red-500'
-                : ninStatus === 'valid'
-                ? 'border-green-500 focus-visible:ring-green-500'
-                : ''
-            }
+            required
+            placeholder="Enter last name"
+            value={formData.lastName}
+            onChange={handleChange}
           />
-          {ninStatus === 'invalid' && (
-            <div className="flex items-center text-red-600 text-sm mt-1">
-              <XCircle className="w-4 h-4 mr-1" />
-              Sorry, lookup failed. Please enter a valid 11 digit NIN and try again.
-            </div>
-          )}
+        </div>
 
-           {ninStatus === 'valid' && (
-            <div className="flex items-center text-green-600 text-sm mt-1">
-              <CheckCircle className="w-4 h-4 mr-1" />
-              NIN verified
-            </div>
-          )}
+        {/* Email */}
+        <div className="space-y-2">
+          <label htmlFor="email" className="font-medium text-sm">
+            Email Address
+          </label>
+          <Input
+            id="email"
+            name="email"
+            required
+            type="email"
+            placeholder="Enter email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+        </div>
+
+        {/* Address */}
+        <div className="space-y-2">
+          <label htmlFor="address" className="font-medium text-sm">
+            Home Address
+          </label>
+          <Input
+            id="address"
+            name="address"
+            type="text"
+            placeholder="Enter address"
+            required
+            value={formData.address}
+            onChange={handleChange}
+          />
+        </div>
+
+        {/* Phone */}
+        <div className="space-y-2">
+          <label htmlFor="phone" className="font-medium text-sm">
+            Phone Number
+          </label>
+          <Input
+            id="phone"
+            name="phone"
+            required
+            type="tel"
+            placeholder="Enter phone number"
+            value={formData.phone}
+            onChange={handleChange}
+          />
         </div>
       </div>
 
+      {/* Warning Notice */}
+      <div className="flex items-start gap-3 p-4 bg-yellow-50 rounded-md ring-1 ring-yellow-300">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mt-1 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-.01-6a9 9 0 110 18 9 9 0 010-18z" />
+        </svg>
+        <div>
+          <p className="font-semibold">Important</p>
+          <p className="text-sm">
+            Please ensure that all information entered is correct. These details will be used for your account creation and contact purposes.
+          </p>
+        </div>
+      </div>
 
-<div className="flex items-start gap-3 p-4 0 bg-yellow-50 rounded-md ring-1 ring-yellow-300">
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mt-1 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-.01-6a9 9 0 110 18 9 9 0 010-18z" />
-  </svg>
-  <div>
-    <p className="">Important</p>
-    <p className="text-sm">
-      Please ensure that you enter your correct BVN and NIN. These will be used to verify your identity and cannot be changed later.
-    </p>
-  </div>
-</div>
-
-
-      {/* Button */}
-      <div className="text-end ">
-        <Button onClick={handleVerify} className=" bg-green-700"> Verify & Continue</Button>
+      {/* Submit Button */}
+      <div className="text-end flex flex-row items-center space-x-4 self-end">
+        <Button onClick={handlePrev} className="bg-green-200 text-green-700">
+          Previous
+        </Button>
+        <Button onClick={handleContinue} className="bg-green-700">
+          Continue
+        </Button>
       </div>
     </div>
   );
