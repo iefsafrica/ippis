@@ -83,7 +83,7 @@ const StepThree = () => {
   return (
     <div className="w-full space-y-8 flex flex-col">
       <div className="p-1 space-y-3">
-        <h2 className="text-xl font-semibold text-green-700">Step 2: Employment Information</h2>
+        <h2 className="text-xl font-semibold text-green-700">Step 3: Employment Information</h2>
         <p className="text-muted-foreground mt-1">Please provide your employment details.</p>
       </div>
 

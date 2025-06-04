@@ -7,6 +7,7 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from 'sonner';
 
 const personalInfoSchema = z.object({
   firstName: z.string().min(1, 'First name is required'),
@@ -32,17 +33,20 @@ const StepTwo = () => {
   const onSubmit = (data) => {
     console.log('Personal Info:', data);
     router.push('/register?step=3');
+    toast.success("Yeah Info submitted!!")
+
   };
 
   const handlePrev = () => {
     router.push('/register?step=1');
+
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="w-full flex flex-col space-y-8">
       {/* Header */}
       <div className="p-1 space-y-3">
-        <h2 className="text-xl font-semibold text-green-700">Step 1: Personal Information</h2>
+        <h2 className="text-xl font-semibold text-green-700">Step 2: Personal Information</h2>
         <p className="text-muted-foreground mt-1">
           Please provide your personal information for registration.
         </p>

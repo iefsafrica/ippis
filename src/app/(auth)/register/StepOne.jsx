@@ -5,6 +5,7 @@ import { CheckCircle, XCircle } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 
 
@@ -25,6 +26,8 @@ const StepOne = () => {
 
     if(bvnStatus && ninStatus === "valid"){
         router?.push("/register?step=2")
+    toast.success("Yeah Info submitted!!")
+
     }
   };
 
@@ -123,7 +126,7 @@ const StepOne = () => {
 
       {/* Button */}
       <div className="text-end ">
-        <Button onClick={handleVerify} className=" bg-green-700"> Verify & Continue</Button>
+        <Button onClick={handleVerify} className=" bg-green-700"> {bvnStatus && ninStatus === "valid" ? "Submit Now!" : "Verify & Continue"}</Button>
       </div>
     </div>
   );
