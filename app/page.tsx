@@ -25,7 +25,7 @@ const IPPISRegistrationForm = () => {
   const isFormValid = bvn.length === 11 && nin.length === 11;
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen" style={{ backgroundColor: '#FFF7F7' }}>
       {/* Header with steps */}
       <div className="bg-white shadow-sm border-b">
         <div className="max-w-4xl mx-auto px-6 py-8">
@@ -51,7 +51,7 @@ const IPPISRegistrationForm = () => {
                 )}
               </div>
             ))}
-          </div>m
+          </div>
         </div>
       </div>
 
