@@ -11,7 +11,7 @@ const RegisterForm = async ({ searchParams }) => {
   const step = Number(searchParams?.['step']) || 1
 
   const steps = [1, 3, 4, 5, 5]; 
-  const currentStep = 1;
+  
 
 
   return (
