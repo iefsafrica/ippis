@@ -55,6 +55,13 @@ const StepOne = () => {
               BVN verified
             </div>
           )}
+
+            {bvnStatus === 'invalid' && (
+            <div className="flex items-center text-red-600 text-sm mt-1">
+              <XCircle className="w-4 h-4 mr-1" />
+              Sorry, lookup failed. Please enter a valid 11 digit BVN and try again.
+            </div>
+          )}
         </div>
 
         {/* NIN Input */}
@@ -79,7 +86,14 @@ const StepOne = () => {
           {ninStatus === 'invalid' && (
             <div className="flex items-center text-red-600 text-sm mt-1">
               <XCircle className="w-4 h-4 mr-1" />
-              Sorry, lookup failed. Please check the details and try again.
+              Sorry, lookup failed. Please enter a valid 11 digit NIN and try again.
+            </div>
+          )}
+
+           {ninStatus === 'valid' && (
+            <div className="flex items-center text-green-600 text-sm mt-1">
+              <CheckCircle className="w-4 h-4 mr-1" />
+              NIN verified
             </div>
           )}
         </div>
