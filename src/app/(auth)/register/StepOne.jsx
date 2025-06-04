@@ -21,7 +21,7 @@ const StepOne = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl space-y-8">
+    <div className="w-full  space-y-8">
       <div className=' p-1 space-y-3'>
         <h2 className="text-xl font-semibold text-green-700">Step 1: Identity Verification</h2>
         <p className="text-muted-foreground mt-1">
