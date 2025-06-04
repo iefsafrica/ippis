@@ -38,6 +38,9 @@ const counterDisplay = ({ activeIndex }: { activeIndex: number }) => {
                     </div>
                 ))}
             </div>
+            <div className='class="relative flex justify-between items-center mt-5"'>
+
+            </div>
         </div>
     )
 }

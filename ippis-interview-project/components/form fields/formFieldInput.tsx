@@ -7,11 +7,12 @@ const FormFieldInput = ({ name, label, placeholder, form, description, type = "t
         <FormField
             control={form.control}
             name={name}
+
             render={({ field }) => (
-                <FormItem>
-                    <FormLabel>{label}</FormLabel>
+                <FormItem className='grid gap-0'>
+                    <FormLabel className='mb-2'>{label}</FormLabel>
                     <FormControl>
-                        <Input className='' type={type} placeholder={placeholder} {...field} />
+                        <Input className='mb-0 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none' type={type} placeholder={placeholder} {...field} />
                     </FormControl>
                     <FormDescription>
                         {description}

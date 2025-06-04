@@ -9,7 +9,10 @@ export default function Home() {
       <div className="container max-w-5xl mx-auto">
         <div className="bg-white p-6 rounded-lg shadow-md">
           <CounterDisplay activeIndex={0} />
-          <VerificationForm />
+          <div className="mt-6">
+
+            <VerificationForm />
+          </div>
         </div>
       </div>
     </div>

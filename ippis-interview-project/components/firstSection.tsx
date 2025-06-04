@@ -13,17 +13,22 @@ import { Input } from "@/components/ui/input"
 import FormFieldInput from "./form fields/formFieldInput"
 
 const formSchema = z.object({
-    username: z.string().min(2, {
-        message: "Username must be at least 2 characters.",
-    }),
+    bvn: z.string()
+        .min(11, { message: "BVN must be exactly 11 digits" })
+        .max(11, { message: "BVN must be exactly 11 digits" })
+        .regex(/^\d+$/, { message: "BVN must contain only numbers" }),
+    nin: z.string()
+        .min(11, { message: "NIN must be exactly 11 digits" })
+        .max(11, { message: "NIN must be exactly 11 digits" })
+        .regex(/^\d+$/, { message: "NIN must contain only numbers" })
 })
 
 export function VerificationForm() {
-    // 1. Define your form.
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            username: "",
+            bvn: "",
+            nin: "",
         },
     })
 
@@ -48,14 +53,17 @@ export function VerificationForm() {
 
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    <div className="p-6 pt-6 rounded-lg border bg-card text-card-foreground shadow-sm border-red-200 space-y-2">
+                    <div className="p-6 pt-6 rounded-lg border bg-card text-card-foreground shadow-sm border-red-200 space-y-6">
 
                         <FormFieldInput
                             form={form.control}
+                            type="number"
                             name="bvn" label={"Bank Verification Number (BVN)"} placeholder={"Enter your 11-digit BVN"}
                         />
                         <FormFieldInput
                             form={form.control}
+                            type="number"
+
                             name="nin" label={"National Identification Number (NIN)"} placeholder={"Enter your 11-digit NIN"}
                         />
                     </div>
@@ -72,7 +80,7 @@ export function VerificationForm() {
                     </div>
                     <div className="flex justify-end">
 
-                        <Button type="submit"> Verify & Continue</Button>
+                        <Button className="bg-green-700" type="submit"> Verify & Continue</Button>
                     </div>
                 </form>
             </Form>
