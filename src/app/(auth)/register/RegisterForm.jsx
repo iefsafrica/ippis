@@ -40,7 +40,7 @@ const RegisterForm = async ({ searchParams }) => {
 
         
             {index !== steps.length - 1 && (
-                <div className="w-6 h-px bg-gray-300 mx-2"></div>
+                <div className="w-6 h-px bg-white mx-2"></div>
             )}
             </div>
         ))}
