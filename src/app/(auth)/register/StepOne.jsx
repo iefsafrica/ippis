@@ -16,8 +16,8 @@ const StepOne = () => {
 
   const handleVerify = () => {
    
-    setBvnStatus(bvn === '12345678911' ? 'valid' : 'invalid');
-    setNinStatus(nin === '12345678123' ? 'valid' : 'invalid');
+    setBvnStatus(bvn.length === 11 ? 'valid' : 'invalid');
+    setNinStatus(nin.length === 11 ? 'valid' : 'invalid');
   };
 
   return (
@@ -86,7 +86,7 @@ const StepOne = () => {
       </div>
 
 
-<div className="flex items-start gap-3 p-4 0 bg-yellow-50 rounded-md">
+<div className="flex items-start gap-3 p-4 0 bg-yellow-50 rounded-md ring-1 ring-yellow-300">
   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mt-1 text-yellow-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-.01-6a9 9 0 110 18 9 9 0 010-18z" />
   </svg>
@@ -100,8 +100,8 @@ const StepOne = () => {
 
 
       {/* Button */}
-      <div className="text-end">
-        <Button onClick={handleVerify}>Verify & Continue</Button>
+      <div className="text-end ">
+        <Button onClick={handleVerify} className=" bg-green-700"> Verify & Continue</Button>
       </div>
     </div>
   );

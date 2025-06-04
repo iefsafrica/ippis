@@ -23,8 +23,8 @@ const RegisterForm = async ({ searchParams }) => {
             <div key={index} className="flex items-center">
             
             <div
-                className={`w-12 h-12 rounded-full flex items-center justify-center text-sm font-semibold
-                ${index === 0 ? 'bg-primary text-white' : 'bg-gray-200 text-gray-800'}
+                className={`w-12 h-12 rounded-full ring-1 ring-gray-200 flex items-center justify-center text-sm font-semibold
+                ${index === 0 ? 'bg-green-700 text-white' : 'bg-white text-gray-800'}
                 `}
             >
                 {step}
