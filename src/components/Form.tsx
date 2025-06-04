@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export default function Form() {
   const steps = [
     { id: 1, label: "Verification" },
@@ -6,12 +8,40 @@ export default function Form() {
     { id: 4, label: "Document upload" },
     { id: 5, label: "Review and Submit" },
   ];
+  const [error, setError] = useState(false);
+  const [bvn, setBvn] = useState("");
+  const [nin, setNin] = useState("");
+  const handleBvnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value) && value.length <= 11) {
+      setBvn(value);
+    }
+  };
+  const handleNinChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value) && value.length <= 11) {
+      setNin(value);
+    }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!bvn || !nin || bvn.length !== 11 || nin.length !== 11) {
+      setError(true);
+      return;
+    }
+
+    setError(false);
+  };
 
   return (
     <div className="bg-white p-4 rounded-lg shadow-md w-1/2">
-      <div className="w-full p-2 bg-red-200 rounded-sm">
-        <p className="text-sm text-red-600">Missing required fields</p>
-      </div>
+      {error && (
+        <div className="w-full p-2 bg-red-200 rounded-sm">
+          <p className="text-sm text-red-600">Missing required fields</p>
+        </div>
+      )}
 
       <div className="flex flex-row justify-between items-center mt-4 border-b border-gray-300 pb-4">
         {steps.map((step, index) => (
@@ -44,7 +74,7 @@ export default function Form() {
           Identification Number (NIN) for verification
         </p>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="border-1 rounded-sm border-red-100 p-4 mb-4">
             <div className="flex flex-col gap-2">
               <label className="text-xs font-semibold text-gray-700">
@@ -53,6 +83,8 @@ export default function Form() {
               <input
                 type="number"
                 maxLength={11}
+                value={bvn}
+                onChange={handleBvnChange}
                 className="border rounded p-1 text-xs border-black placeholder:text-black"
                 placeholder="Enter your BVN"
               />
@@ -65,6 +97,8 @@ export default function Form() {
               <input
                 maxLength={11}
                 type="number"
+                value={nin}
+                onChange={handleNinChange}
                 className="border rounded p-1 text-xs border-black placeholder:text-black"
                 placeholder="Enter your NIN"
               />
