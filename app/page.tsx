@@ -5,7 +5,7 @@ const RegistrationForm = () => {
 	return (
 		<div className="form-card flex items-center justify-center bg-[#FFF] w-[100%] max-w-[1300px] h-[94vh] mx-auto my-[3vh] pt-[26px] px-[16px] md:px-[70px] pb-[20px] shadow-md overflow-scroll scrollbar-hide">
 			<div className="flex flex-col items-start justify-between ngap-[24px] w-[100%] h-[100%]">
-				<div className="flex items-center p-3 w-full zbg-pink-200 justify-between mb-2">
+				<div className="flex items-center flex-wrap p-3 w-full zbg-pink-200 justify-between mb-2">
 					<div className="flex flex-col items-center justify-center gap-1">
 						<span className="rounded-full bg-green-700 text-black text-[16px] font-semibold w-[40px] h-[40px] flex items-center justify-center">
 							1
@@ -69,7 +69,7 @@ const RegistrationForm = () => {
 						</div>
 					</div>
 
-					<button className="w-[200px] bg-green-800 text-white font-semibold py-[15px] rounded-lg px-[5px] hover:bg-[#F0AD4E] transition">
+					<button className="w-[200px] self-end bg-green-800 text-white font-semibold py-[15px] rounded-lg px-[5px] hover:bg-green-500 transition">
 						Verify & Continue
 					</button>
 				</form>
