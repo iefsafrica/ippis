@@ -1,0 +1,104 @@
+.form-wrapper {
+  background-color: #fff;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.step {
+  text-align: center;
+  flex: 1;
+}
+
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin: 0 auto;
+  line-height: 32px;
+  font-weight: bold;
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.step.active .step-circle {
+  background-color: #007b3f;
+  color: white;
+}
+
+.step-label {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.form-title {
+  color: #007b3f;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-subtitle {
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+.form-card {
+  background: #fff8f2;
+  border: 1px solid #ffe9cc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-card label {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.form-card input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.warning-box {
+  background-color: #fff8dc;
+  border: 1px solid #f1c40f;
+  padding: 1rem;
+  border-radius: 6px;
+  color: #333;
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.warning-box .icon {
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
+}
+
+.submit-button {
+  background-color: #007b3f;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #00602f;
+}
