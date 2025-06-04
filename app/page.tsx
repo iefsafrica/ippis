@@ -26,6 +26,7 @@ export default function RegisterPage() {
       <div className="min-h-screen bg-pink-50 flex justify-center items-start py-10 px-4">
         <div className="bg-white p-8 rounded shadow-md w-full max-w-2xl">
           {/* Step Progress */}
+          
           <div className="flex justify-between mb-8 text-center text-sm font-medium">
             {['Verification', 'Personal Information', 'Employment Information', 'Document Upload', 'Review & Submit'].map(
               (step, index) => (
@@ -42,6 +43,7 @@ export default function RegisterPage() {
               )
             )}
           </div>
+          <div className="border-t border-gray-300 mb-6"></div>
 
           {/* Step Heading */}
           <h2 className="text-xl font-semibold text-green-700 mb-2">Step 1: Identity Verification</h2>
