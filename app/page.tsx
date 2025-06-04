@@ -79,13 +79,13 @@ export default function RegisterPage() {
             </div>
           </div>
 
-          {/* Warning Box */}
+        
           <div className="bg-yellow-100 text-yellow-800 text-sm p-3 rounded border border-yellow-300 mt-6">
             <strong>Important:</strong> Please ensure that you enter your correct BVN and NIN. These will be used to verify
             your identity and cannot be changed later.
           </div>
 
-          {/* Action Button */}
+        
           <div className="mt-6">
             <VerifyButton onClick={handleVerify} />
           </div>
