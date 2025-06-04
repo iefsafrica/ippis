@@ -21,7 +21,7 @@ const RegisterForm = async ({ searchParams }) => {
     <div className='w-full flex flex-col gap-y-5 max-w-5xl mx-auto px-4 py-6 animate-fade-in bg-white rounded-lg shadow-lg'>
       
 
-        <div className="flex items-center  justify-center space-x-4  w-full border-b-2 py-4 border-muted/20 border-b-gray-300 pb-4 mb-4">
+        <div className="flex items-center max-md:overflow-x-auto  justify-center space-x-4  w-full border-b-2 py-4 border-muted/20 border-b-gray-300 pb-4 mb-4">
         {steps.map((step, index) => (
             <div key={index} className="flex items-center">
             
@@ -40,7 +40,7 @@ const RegisterForm = async ({ searchParams }) => {
 
         
             {index !== steps.length - 1 && (
-                <div className="w-6 h-px bg-white mx-2"></div>
+                <div className="w-6 h-px bg-white mx-2 max-md:hidden"></div>
             )}
             </div>
         ))}
