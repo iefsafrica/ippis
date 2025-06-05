@@ -24,8 +24,8 @@ export default function Home() {
   };
 
   return (
-    <main className="flex items-center justify-center bg-pink-50 p-5 md:p-24">
-      <div className="w-full md:h-full bg-white p-8 rounded-lg shadow-md">
+    <main className="min-h-screen bg-pink-50 py-10 px-24">
+      <div className="w-full max-w-3xl mx-auto bg-white p-24 rounded-lg shadow-md">
         <Stepper currentStep={currentStep} />
         {renderForm()}
       </div>
